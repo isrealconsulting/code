@@ -55,4 +55,4 @@ echo '</html>';
 
 // Logout routines
 
-// Session end, terminate instance
+// Session end, terminate instance, cleanup
