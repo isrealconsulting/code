@@ -39,9 +39,10 @@ are in their own folders.
   -includes\        project-wide includes & libs
   
     
-  -app.yaml         app engine app config file
-  -main.php         Main app entry page (code)
-  -favicon.ico      Main app icon / site favicon
+  -app.yaml             app engine app config file
+  -main.php             Main app entry page (code)
+  -favicon.ico          Main app icon / site favicon
+  -stylesheet-main.css  Main app theme/stylesheet
   
 
 #### Main App (code.isrealconsulting.com)
