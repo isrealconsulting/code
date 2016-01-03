@@ -1,6 +1,6 @@
 application: realcode-gae-v1
 version: 1
-runtime: php56
+runtime: php
 api_version: 1
 threadsafe: yes
 
