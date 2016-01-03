@@ -1,5 +1,16 @@
 <?php
-   
+use google\appengine\api\users\User;
+use google\appengine\api\users\UserService;
+# Looks for current Google account session
+$user = UserService::getCurrentUser();
+$username = "";
+if ($user) {
+  $username = 'Hello, ' . htmlspecialchars($user->getNickname());
+}
+else {
+  header('Location: ' . UserService::createLoginURL($_SERVER['REQUEST_URI']));
+}
+
 // display main welcome page
 echo '<!DOCTYPE html>';
 echo '<html lang=en>';
@@ -35,17 +46,8 @@ echo "<h1>NOTICE</h1>
 <h2>Private & Proprietary Sytem</h2>
 <p>This system is private and owned by Isreal Consulting. Unauthorized access is prohibited.  Violators will be prosecuted.</p>
 </article>";
+echo "Welcome, " . $username;
 
-use google\appengine\api\users\User;
-use google\appengine\api\users\UserService;
-# Looks for current Google account session
-$user = UserService::getCurrentUser();
-if ($user) {
-  echo 'Hello, ' . htmlspecialchars($user->getNickname());
-}
-else {
-  header('Location: ' . UserService::createLoginURL($_SERVER['REQUEST_URI']));
-}
 
 echo "<article>
 <h2>For Support</h2>
