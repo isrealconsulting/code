@@ -34,9 +34,20 @@ echo "<h1>NOTICE</h1>
 <article>
 <h2>Private & Proprietary Sytem</h2>
 <p>This system is private and owned by Isreal Consulting. Unauthorized access is prohibited.  Violators will be prosecuted.</p>
-</article>
+</article>";
 
-<article>
+use google\appengine\api\users\User;
+use google\appengine\api\users\UserService;
+# Looks for current Google account session
+$user = UserService::getCurrentUser();
+if ($user) {
+  echo 'Hello, ' . htmlspecialchars($user->getNickname());
+}
+else {
+  header('Location: ' . UserService::createLoginURL($_SERVER['REQUEST_URI']));
+}
+
+echo "<article>
 <h2>For Support</h2>
 <p>Visit the Isreal Consulting Support site:<br />
 <a href='http://cs.isrealconsulting.com'>support.isrealconsulting.com</a></p>";
